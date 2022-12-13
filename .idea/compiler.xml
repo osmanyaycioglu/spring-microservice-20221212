@@ -7,9 +7,10 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="ms-error-api" />
         <module name="node-configuration" />
+        <module name="ms-error-api" />
         <module name="node-discovery" />
+        <module name="ms-order" />
       </profile>
       <profile name="Annotation profile for spring-microservice" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
@@ -29,6 +30,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ms-customer" options="-parameters" />
       <module name="ms-error-api" options="-parameters" />
+      <module name="ms-order" options="-parameters" />
       <module name="node-configuration" options="-parameters" />
       <module name="node-discovery" options="-parameters" />
     </option>

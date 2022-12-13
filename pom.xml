@@ -12,6 +12,7 @@
     <module>ms-error-api</module>
     <module>node-discovery</module>
     <module>node-configuration</module>
+    <module>ms-order</module>
   </modules>
 
   <name>spring-microservice</name>
