@@ -11,6 +11,7 @@
     <module>ms-customer</module>
     <module>ms-error-api</module>
     <module>node-discovery</module>
+    <module>node-configuration</module>
   </modules>
 
   <name>spring-microservice</name>
