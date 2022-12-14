@@ -20,19 +20,19 @@ public class CustomerProvisionController {
     @Autowired
     private CustomerManagementService customerManagementService;
 
-    @PostMapping("/do/{operation}")
-    public ResponseEntity<?> doAll(@PathVariable("operation")  String operation,
-                                   HttpServletRequest httpServletRequestParam) throws Exception {
-        switch (operation){
-            case "add":
-                ServletInputStream inputStream = httpServletRequestParam.getInputStream();
-                ObjectMapper objectMapper = new ObjectMapper();
-                CustomerRest customerRest = objectMapper.readValue(inputStream,
-                                                                   CustomerRest.class);
-                return ResponseEntity.ok("OK");
-        }
-        return ResponseEntity.ok("OK");
-    }
+//    @PostMapping("/do/{operation}")
+//    public ResponseEntity<?> doAll(@PathVariable("operation")  String operation,
+//                                   HttpServletRequest httpServletRequestParam) throws Exception {
+//        switch (operation){
+//            case "add":
+//                ServletInputStream inputStream = httpServletRequestParam.getInputStream();
+//                ObjectMapper objectMapper = new ObjectMapper();
+//                CustomerRest customerRest = objectMapper.readValue(inputStream,
+//                                                                   CustomerRest.class);
+//                return ResponseEntity.ok("OK");
+//        }
+//        return ResponseEntity.ok("OK");
+//    }
 
 
     @PostMapping("/add")
