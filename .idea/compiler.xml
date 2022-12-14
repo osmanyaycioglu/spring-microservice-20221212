@@ -8,9 +8,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ms-restaurant" />
-        <module name="node-configuration" />
-        <module name="ms-restaurant-api" />
         <module name="ms-error-api" />
+        <module name="node-configuration" />
+        <module name="ms-order-reactive" />
+        <module name="ms-restaurant-api" />
         <module name="node-discovery" />
         <module name="ms-order" />
       </profile>
@@ -33,6 +34,7 @@
       <module name="ms-customer" options="-parameters" />
       <module name="ms-error-api" options="-parameters" />
       <module name="ms-order" options="-parameters" />
+      <module name="ms-order-reactive" options="-parameters" />
       <module name="ms-restaurant" options="-parameters" />
       <module name="ms-restaurant-api" options="-parameters" />
       <module name="node-configuration" options="-parameters" />

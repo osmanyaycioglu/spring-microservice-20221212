@@ -13,6 +13,7 @@
     <module>node-discovery</module>
     <module>node-configuration</module>
     <module>ms-order</module>
+    <module>ms-order-reactive</module>
   </modules>
 
   <name>spring-microservice</name>
