@@ -8,6 +8,8 @@
         <option value="$PROJECT_DIR$/ms-error-api/pom.xml" />
         <option value="$PROJECT_DIR$/node-discovery/pom.xml" />
         <option value="$PROJECT_DIR$/ms-order/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-restaurant/pom.xml" />
+        <option value="$PROJECT_DIR$/ms-restaurant-api/pom.xml" />
       </list>
     </option>
   </component>

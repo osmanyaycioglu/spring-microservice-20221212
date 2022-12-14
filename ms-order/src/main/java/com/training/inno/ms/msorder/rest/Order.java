@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Order {
     private String customerName;
+    private String customerNumber;
     private String orderId;
     private List<String> meals;
     private Long deliveryTime;
@@ -38,5 +39,24 @@ public class Order {
 
     public void setDeliveryTime(Long deliveryTimeParam) {
         deliveryTime = deliveryTimeParam;
+    }
+
+    public String getCustomerNumber() {
+        return customerNumber;
+    }
+
+    public void setCustomerNumber(String customerNumberParam) {
+        customerNumber = customerNumberParam;
+    }
+
+    @Override
+    public String toString() {
+        return "Order{" +
+               "customerName='" + customerName + '\'' +
+               ", customerNumber='" + customerNumber + '\'' +
+               ", orderId='" + orderId + '\'' +
+               ", meals=" + meals +
+               ", deliveryTime=" + deliveryTime +
+               '}';
     }
 }
