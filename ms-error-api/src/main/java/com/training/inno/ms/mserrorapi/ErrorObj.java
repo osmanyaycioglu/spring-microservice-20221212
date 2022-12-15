@@ -22,8 +22,8 @@ public class ErrorObj {
         this.code = code;
     }
 
-    public static ErrorObjBuilder builder() {
-        return new ErrorObjBuilder();
+    public static ErrorObjBuilder builder(String microserviceParam) {
+        return new ErrorObjBuilder(microserviceParam);
     }
 
     public List<ErrorObj> getSubErrors() {
@@ -60,20 +60,18 @@ public class ErrorObj {
 
     public static class ErrorObjBuilder {
         private List<ErrorObj> subErrors;
-        private String         microservice;
+        private final String         microservice;
         private String         desc;
         private int            code;
 
-        ErrorObjBuilder() {
+
+        ErrorObjBuilder(String microserviceParam) {
+
+            microservice = microserviceParam;
         }
 
         public ErrorObjBuilder withSubErrors(List<ErrorObj> subErrors) {
             this.subErrors = subErrors;
-            return this;
-        }
-
-        public ErrorObjBuilder withMicroservice(String microservice) {
-            this.microservice = microservice;
             return this;
         }
 

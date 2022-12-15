@@ -10,4 +10,9 @@ public class ErrorConfig {
     public ErrorAdvice errorAdvice(){
         return new ErrorAdvice();
     }
+
+    @Bean
+    public FeignErrorDecoder feignErrorDecoder(){
+        return new FeignErrorDecoder();
+    }
 }

@@ -15,17 +15,17 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/place")
-    public String placeOrder(@RequestBody Order orderParam){
+    public String placeOrder(@RequestBody Order orderParam) {
         return orderService.placeOrder(orderParam);
     }
 
     @PostMapping("/place2")
-    public String placeOrder2(@RequestBody Order orderParam){
+    public String placeOrder2(@RequestBody Order orderParam) {
         return orderService.placeOrder2(orderParam);
     }
 
     @PostMapping("/place3")
-    public String placeOrder3(@RequestBody Order orderParam){
+    public String placeOrder3(@RequestBody Order orderParam) {
         return orderService.placeOrder3(orderParam);
     }
 

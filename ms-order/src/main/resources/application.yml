@@ -1,0 +1,16 @@
+app:
+  boundedcontext: restdom.restcontext
+spring:
+  config:
+    import: configserver:http://127.0.0.1:8888
+  application:
+    name: order
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: true
+        retry-on-all-operations: true
+        max-retries-on-same-service-instance: 0
+        max-retries-on-next-service-instance: 2
+server:
+  port: ${APPPORT:10000}

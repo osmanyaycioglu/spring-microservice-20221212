@@ -7,7 +7,9 @@ import com.training.inno.ms.msorder.rest.Order;
 import com.training.inno.ms.msrestaurantapi.rest.models.Menu;
 import com.training.inno.ms.msrestaurantapi.rest.models.MenuRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.retry.annotation.Retryable;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
@@ -27,9 +29,11 @@ public class RestaurantMSIntegration {
     public Menu getMenu(Order orderParam) {
         MenuRequest menuRequest = new MenuRequest();
         menuRequest.setMealNames(orderParam.getMeals());
-        Menu menu = restTemplate.postForObject("http://restaurant/api/v1/restaurant/menu/get/meals",
-                                               menuRequest,
-                                               Menu.class);
+
+        Menu menu = null;
+        menu = restTemplate.postForObject("http://restaurant/api/v1/restaurant/menu/get/meals",
+                                          menuRequest,
+                                          Menu.class);
         return menu;
     }
 
