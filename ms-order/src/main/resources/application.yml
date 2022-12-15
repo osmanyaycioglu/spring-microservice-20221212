@@ -8,9 +8,41 @@ spring:
   cloud:
     loadbalancer:
       retry:
-        enabled: true
+        enabled: false
         retry-on-all-operations: true
         max-retries-on-same-service-instance: 0
         max-retries-on-next-service-instance: 2
 server:
   port: ${APPPORT:10000}
+resilience4j:
+  retry:
+    instances:
+      restaurant-retry:
+        wait-duration: '1ms'
+        max-attempts: 2
+        retry-exception-predicate: com.training.inno.ms.msorder.resilience.MyRetryChooser
+        result-predicate: com.training.inno.ms.msorder.resilience.MyResultPredicate
+      xyz:
+        wait-duration: '500ms'
+        max-attempts: 4
+        result-predicate: com.training.inno.ms.msorder.retry.test.MyTestPredicate
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: always
+      show-components: always
+  info:
+    env:
+      enabled: true
+info:
+  my:
+    test:
+      info:
+        version: '1.0.0'
+      app: "app1"
+      port: ${server.port}
+      pom: @project.version@
