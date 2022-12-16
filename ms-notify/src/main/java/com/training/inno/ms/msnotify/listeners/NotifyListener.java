@@ -6,6 +6,7 @@ import org.springframework.amqp.rabbit.annotation.Queue;
 import org.springframework.amqp.rabbit.annotation.QueueBinding;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -55,8 +56,10 @@ public class NotifyListener {
             value = @Queue(value = "topic-all-queue", autoDelete = "false", durable = "true"),
             exchange = @Exchange(value = "topic-notification-exchange", durable = "true", autoDelete = "false", type = ExchangeTypes.TOPIC),
             key = "msg.#"))
-    public void handleTopicALL(NotificationMessage nmsg) {
+    @SendTo("notification-reponse-exchange/sms-log-response")
+    public String handleTopicALL(NotificationMessage nmsg) {
         System.out.println(port + " Received ALL : " + nmsg);
+        return "Mesaj : " + nmsg +  " loglaandı.";
     }
 
 }
