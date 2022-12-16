@@ -3,6 +3,7 @@ package com.training.inno.ms.msorder.services;
 import com.training.inno.ms.msorder.integration.CustomerMSIntegration;
 import com.training.inno.ms.msorder.integration.CustomerRest;
 import com.training.inno.ms.msorder.integration.RestaurantMSIntegration;
+import com.training.inno.ms.msorder.integration.SMSNotificationIntegration;
 import com.training.inno.ms.msorder.rest.Order;
 import com.training.inno.ms.msrestaurantapi.rest.models.Menu;
 import org.slf4j.Logger;
@@ -19,13 +20,18 @@ public class OrderService {
     @Autowired
     private CustomerMSIntegration customerMSIntegration;
 
+    @Autowired
+    private SMSNotificationIntegration smsNotificationIntegration;
+
     public String placeOrder(Order orderParam) {
         Menu menu = restaurantMSIntegration.getMenu(orderParam);
+        smsNotificationIntegration.sendInitialSMS(orderParam);
         return menu.getDesc();
     }
 
     public String placeOrder2(Order orderParam) {
         Menu menu = restaurantMSIntegration.getMenu2(orderParam);
+        smsNotificationIntegration.sendInitialSMS(orderParam);
         return menu.getDesc();
     }
 
@@ -44,6 +50,7 @@ public class OrderService {
             logger.info("Customer added : " + s);
         }
         Menu menu = restaurantMSIntegration.getMenu3(orderParam);
+        smsNotificationIntegration.sendInitialSMS(orderParam);
         return menu.getDesc();
     }
 

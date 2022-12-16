@@ -11,6 +11,7 @@
         <module name="ms-error-api" />
         <module name="node-configuration" />
         <module name="ms-order-reactive" />
+        <module name="ms-notify" />
         <module name="ms-restaurant-api" />
         <module name="node-discovery" />
         <module name="ms-order" />
@@ -33,6 +34,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ms-customer" options="-parameters" />
       <module name="ms-error-api" options="-parameters" />
+      <module name="ms-notify" options="-parameters" />
       <module name="ms-order" options="-parameters" />
       <module name="ms-order-reactive" options="-parameters" />
       <module name="ms-restaurant" options="-parameters" />
