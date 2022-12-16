@@ -3,10 +3,12 @@ package com.training.inno.ms.msorder.rest;
 import com.training.inno.ms.msorder.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/order/management")
+@RefreshScope
 public class OrderController {
 
     @Autowired
