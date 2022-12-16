@@ -26,6 +26,24 @@ resilience4j:
         wait-duration: '500ms'
         max-attempts: 4
         result-predicate: com.training.inno.ms.msorder.retry.test.MyTestPredicate
+    retry-aspect-order: 1
+  circuitbreaker:
+    instances:
+      restaurant-cb:
+        sliding-window-type: count_based
+        sliding-window-size: 20
+        allow-health-indicator-to-fail: true
+        register-health-indicator: true
+        failure-rate-threshold: 30
+        minimum-number-of-calls: 10
+        wait-duration-in-open-state: 10s
+        automatic-transition-from-open-to-half-open-enabled: false
+        max-wait-duration-in-half-open-state: 5s
+        permitted-number-of-calls-in-half-open-state: 10
+        slow-call-duration-threshold: 500ms
+        slow-call-rate-threshold: 30
+    circuit-breaker-aspect-order: 2
+
 management:
   endpoints:
     web:

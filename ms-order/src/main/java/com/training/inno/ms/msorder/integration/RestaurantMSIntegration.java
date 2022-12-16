@@ -6,6 +6,7 @@ import com.netflix.discovery.shared.Application;
 import com.training.inno.ms.msorder.rest.Order;
 import com.training.inno.ms.msrestaurantapi.rest.models.Menu;
 import com.training.inno.ms.msrestaurantapi.rest.models.MenuRequest;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.retry.annotation.Retryable;
@@ -13,6 +14,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
+import javax.xml.namespace.QName;
 import java.util.List;
 
 @Service
@@ -28,6 +30,7 @@ public class RestaurantMSIntegration {
     private IRestaurantIntegration restaurantIntegration;
 
     @Retry(name = "restaurant-retry")
+    @CircuitBreaker(name = "restaurant-cb", fallbackMethod = "getMenuFallback")
     public Menu getMenu(Order orderParam) {
         MenuRequest menuRequest = new MenuRequest();
         menuRequest.setMealNames(orderParam.getMeals());
@@ -37,6 +40,11 @@ public class RestaurantMSIntegration {
                                           menuRequest,
                                           Menu.class);
         return menu;
+    }
+
+    public Menu getMenuFallback(Order orderParam,
+                                Throwable throwableParam) {
+        return null;
     }
 
     public Menu getMenu3(Order orderParam) {
