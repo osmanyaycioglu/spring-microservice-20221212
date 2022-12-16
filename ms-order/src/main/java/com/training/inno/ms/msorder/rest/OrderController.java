@@ -31,7 +31,7 @@ public class OrderController {
     private String denemeStr;
 
     @GetMapping("/test")
-    public String test(@RequestBody Order orderParam) {
+    public String test() {
         return denemeStr;
     }
 
