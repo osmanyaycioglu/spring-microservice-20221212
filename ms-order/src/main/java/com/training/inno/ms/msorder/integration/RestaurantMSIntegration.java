@@ -36,7 +36,7 @@ public class RestaurantMSIntegration {
         menuRequest.setMealNames(orderParam.getMeals());
 
         Menu menu = null;
-        menu = restTemplate.postForObject("http://restaurant/api/v1/restaurant/menu/get/meals",
+        menu = restTemplate.postForObject("http://node-restaurant-api/api/v1/restaurant/menu/get/meals",
                                           menuRequest,
                                           Menu.class);
         return menu;

@@ -1,0 +1,14 @@
+server:
+    port: ${APPPORT:9090}
+spring:
+    application:
+        name: node-restaurant-api
+    config:
+        import: configserver:http://127.0.0.1:8888
+    cloud:
+        gateway:
+            routes:
+                - id: restaurant-ms-proxy
+                  uri: lb://restaurant
+                  predicates:
+                    - Path=/api/v1/restaurant/**

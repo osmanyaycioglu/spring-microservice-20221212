@@ -14,6 +14,8 @@
     <module>node-configuration</module>
     <module>ms-order</module>
     <module>ms-order-reactive</module>
+    <module>ms-notify</module>
+    <module>node-restaurant-apigw</module>
   </modules>
 
   <name>spring-microservice</name>
